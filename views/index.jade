@@ -13,8 +13,10 @@ html
     link(rel='stylesheet', href='style/app.css')
     link(rel='stylesheet', href='style/add2home.css')
     style
+    script(src='http://yandex.st/json2/2011-10-19/json2.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js')
+    script(src='js/jstorage.min.js')
     script(type='text/javascript')
       var addToHomeConfig = {
         returningVisitor: true,
@@ -25,6 +27,7 @@ html
       }
     script(src='js/add2home.js')
     script(src='js/app.js')
+    != js('eyeball')
   body
     //
        Home 
@@ -67,20 +70,20 @@ html
         a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
           | Back
       div(data-role='content', style='padding: 15px;')
-        form(action='', data-ajax='false')
+        form(data-ajax='false', id='add_server_form')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='textinput1')
+              label(for='server_name')
                 | Server Name
-              input#textinput1(name='name', placeholder='My Server', value='', type='text')
+              input#server_name(name='name', placeholder='My Server', value='', type='text')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='textinput1')
+              label(for='server_url')
                 | URL
-              input#textinput1(name='url', placeholder='http://some.url.com', value='', type='url')
+              input#server_url(name='url', placeholder='http://some.url.com', value='', type='url')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='textinput2')
+              label(for='server_port')
                 | Port
-              input#textinput2(name='port', placeholder='6379', value='6379', type='number')
+              input#server_port(name='port', placeholder='6379', value='6379', type='number')
           input(type='submit', data-theme='e', value='Add')

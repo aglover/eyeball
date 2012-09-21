@@ -8,7 +8,8 @@
 		"jade" : "latest",
 		"redis": "latest",
 		"hiredis": "latest",
-		"coffee-script" : "latest"
+		"coffee-script" : "latest",
+		"connect-assets" : "latest"
 	},
 	"engines" : {
 		"node" : "0.6.x"

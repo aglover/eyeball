@@ -1,7 +1,9 @@
 express = require 'express'
 
+
 app = express(express.logger())
 app.use express.bodyParser()
+app.use require('connect-assets')()
 
 app.set 'view engine', 'jade'
 app.use '/images', express.static(__dirname + '/public/images')
