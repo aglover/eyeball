@@ -1,0 +1,16 @@
+{
+	"name":"eyeball",
+	"version":"0.0.1",
+	"dependencies":{
+		"express":"latest",
+		"mocha" : "1.0.1",
+		"should" : "0.6.1",
+		"jade" : "latest",
+		"redis": "latest",
+		"hiredis": "latest",
+		"coffee-script" : "latest"
+	},
+	"engines" : {
+		"node" : "0.8.x"
+	}
+}

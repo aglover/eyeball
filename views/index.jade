@@ -1,0 +1,71 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Redis Server Stats
+    link(rel='stylesheet', href='https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css')
+    link(rel='stylesheet', href='style/app.css')
+    style
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(src='https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js')
+    script(src='js/app.js')
+  body
+    //
+       Home 
+    #page1(data-role='page', data-theme='a')
+      div(data-theme='e', data-role='header')
+        h3
+          | Redis stats
+        a.ui-btn-right(data-role='button', data-transition='fade', href='#page2', data-icon='plus', data-iconpos='left')
+          | Add
+      div(data-role='content', style='padding: 15px;')
+        ul(data-role='listview', data-divider-theme='e', data-inset='true')
+          li(data-role='list-divider', role='heading')
+            | Servers
+          li(data-theme='e')
+            a(href='#page3', data-transition='slide')
+              | Redis Server A
+    //
+       a server page 
+    #page3(data-role='page', data-theme='a')
+      div(data-theme='e', data-role='header')
+        h3
+          | Server Name
+        a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
+          | Back
+      div(data-role='content', style='padding: 15px;')
+        div(data-role='collapsible-set', data-theme='e', data-content-theme='e')
+          div(data-role='collapsible', data-collapsed='false')
+            h3
+              | Used Memory
+            | value
+          div(data-role='collapsible', data-collapsed='true')
+            h3
+              | Uptime days
+    //
+      adding a server page 
+    #page2(data-role='page', data-theme='a')
+      div(data-theme='e', data-role='header')
+        h3
+          | Add a server
+        a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
+          | Back
+      div(data-role='content', style='padding: 15px;')
+        form(action='', data-ajax='false')
+          div(data-role='fieldcontain')
+            fieldset(data-role='controlgroup')
+              label(for='textinput1')
+                | Server Name
+              input#textinput1(name='name', placeholder='My Server', value='', type='text')
+          div(data-role='fieldcontain')
+            fieldset(data-role='controlgroup')
+              label(for='textinput1')
+                | URL
+              input#textinput1(name='url', placeholder='http://some.url.com', value='', type='url')
+          div(data-role='fieldcontain')
+            fieldset(data-role='controlgroup')
+              label(for='textinput2')
+                | Port
+              input#textinput2(name='port', placeholder='6379', value='6379', type='number')
+          input(type='submit', data-theme='e', value='Add')

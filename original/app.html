@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Redis Server Stats</title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+        <link rel="stylesheet" href="app.css" />
+        <style></style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" data-theme="a" id="page1">
+            <div data-theme="e" data-role="header">
+                <h3>
+                    Redis stats
+                </h3>
+                <a data-role="button" data-transition="fade" href="#page2" data-icon="plus" data-iconpos="left" class="ui-btn-right">
+                    Add
+                </a>
+            </div>
+
+            <div data-role="content" style="padding: 15px">
+                <ul data-role="listview" data-divider-theme="e" data-inset="true">
+                    <li data-role="list-divider" role="heading">
+                        Servers
+                    </li>
+                    <li data-theme="e">
+                        <a href="#page3" data-transition="slide">
+                            Redis Server A
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+		 <!-- a server page -->
+		<div data-role="page" data-theme="a" id="page3">
+            <div data-theme="e" data-role="header">
+                <h3>
+                    Server Name
+                </h3>
+                <a data-role="button" data-transition="fade" href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
+                    Back
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <div data-role="collapsible-set" data-theme="e" data-content-theme="e">
+                    <div data-role="collapsible" data-collapsed="false">
+                        <h3>
+                            Used Memory
+                        </h3>value
+                    </div>
+                    <div data-role="collapsible" data-collapsed="true">
+                        <h3>
+                            Uptime days
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!--adding a server page -->
+		<div data-role="page" data-theme="a" id="page2">
+            <div data-theme="e" data-role="header">
+                <h3>
+                    Add a server
+                </h3>
+                <a data-role="button" data-transition="fade" href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-right">
+                    Back
+                </a>
+            </div>
+            <div data-role="content" style="padding: 15px">
+                <form action="" data-ajax="false">
+					<div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput1">
+                                Server Name
+                            </label>
+                            <input name="name" id="textinput1" placeholder="My Server" value="" type="text" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput1">
+                                URL
+                            </label>
+                            <input name="url" id="textinput1" placeholder="http://some.url.com" value="" type="url" />
+                        </fieldset>
+                    </div>
+                    <div data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <label for="textinput2">
+                                Port
+                            </label>
+                            <input name="port" id="textinput2" placeholder="6379" value="6379" type="number" />
+                        </fieldset>
+                    </div>
+                    <input type="submit" data-theme="e" value="Add" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
