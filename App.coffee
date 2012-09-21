@@ -4,9 +4,9 @@ app = express(express.logger())
 app.use express.bodyParser()
 
 app.set 'view engine', 'jade'
-app.use '/images', express.static(__dirname + '/images')
-app.use '/js', express.static(__dirname + '/js')
-app.use '/style', express.static(__dirname + '/style')
+app.use '/images', express.static(__dirname + '/public/images')
+app.use '/js', express.static(__dirname + '/public/js')
+app.use '/style', express.static(__dirname + '/public/style')
 
 app.get '/', (req, res) ->
 	res.render 'index'
