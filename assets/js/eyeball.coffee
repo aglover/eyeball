@@ -1,5 +1,17 @@
 $ ->
+	initailize = ->
+		$.mobile.showPageLoadingMsg("e", "Loading theme a...")
+		stored_servers = $.jStorage.get('servers')
+		if(!stored_servers)
+			$('#sever_list').hide()
+		else
+			console.log "stored_servers wasn't nil"
+		$.mobile.hidePageLoadingMsg()
+		return false
+	# initailize()
+	
 	$('#add_server_form').submit ->
+		$.mobile.showPageLoadingMsg()
 		name = $("#server_name")[0].value
 		url = $("#server_url")[0].value
 		port = $("#server_port")[0].value
@@ -24,4 +36,6 @@ $ ->
 			$("#server_port").val('')
 		else
 			console.log "server already there!"
+			
+		$.mobile.hidePageLoadingMsg();	
 		return false
