@@ -10,13 +10,11 @@ html
     link(rel='apple-touch-icon', sizes='114x114', href='images/touch-icon-iphone4.png')
 
     link(rel='stylesheet', href='https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.css')
-    link(rel='stylesheet', href='style/app.css')
-    link(rel='stylesheet', href='style/add2home.css')
+    link(rel='stylesheet', href='/style/app.css')
+    link(rel='stylesheet', href='/style/add2home.css')
     style
-    script(src='http://yandex.st/json2/2011-10-19/json2.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(src='https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.1.1/jquery.mobile-1.1.1.min.js')
-    script(src='js/jstorage.min.js')
     script(type='text/javascript')
       var addToHomeConfig = {
         returningVisitor: true,
@@ -25,65 +23,32 @@ html
         lifespan: 10000,
         touchIcon: true
       }
-    script(src='js/add2home.js')
-    script(src='js/app.js')
+    script(src='/js/add2home.js')
+    script(src='/js/app.js')
     != js('eyeball')
   body
-    //
-       Home 
-    #page1(data-role='page', data-theme='a')
+ 
+    #page_account_add(data-role='page', data-theme='a')
       div(data-theme='e', data-role='header')
         h3
-          | Redis stats
-        a.ui-btn-right(data-role='button', data-transition='fade', href='#page2', data-icon='plus', data-iconpos='left')
-          | Add
-      div#sever_list(data-role='content', style='padding: 15px;')
-        ul(data-role='listview', data-divider-theme='e', data-inset='true')
-          li(data-role='list-divider', role='heading')
-            | Servers
-          li(data-theme='e')
-            a(href='#page3', data-transition='slide')
-              | Redis Server A
-    //
-       a server page 
-    #page3(data-role='page', data-theme='a')
-      div(data-theme='e', data-role='header')
-        h3
-          | Server Name
-        a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
+          | Create an account
+        a.ui-btn-right(data-role='button', data-transition='fade', href='/', data-icon='arrow-l', data-iconpos='left')
           | Back
       div(data-role='content', style='padding: 15px;')
-        div(data-role='collapsible-set', data-theme='e', data-content-theme='e')
-          div(data-role='collapsible', data-collapsed='false')
-            h3
-              | Used Memory
-            | value
-          div(data-role='collapsible', data-collapsed='true')
-            h3
-              | Uptime days
-    //
-      adding a server page 
-    #page2(data-role='page', data-theme='a')
-      div(data-theme='e', data-role='header')
-        h3
-          | Add a server
-        a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
-          | Back
-      div(data-role='content', style='padding: 15px;')
-        form(data-ajax='false', id='add_server_form')
+        form(data-ajax='false', id='account_create_form', action='/account/create', method='POST')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='server_name')
-                | Server Name
-              input#server_name(name='name', placeholder='My Server', value='', type='text')
+              label(for='username')
+                | Username
+              input#username(name='username', placeholder='me@acme.com', value='', type='text')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='server_url')
-                | URL
-              input#server_url(name='url', placeholder='http://some.url.com', value='', type='url')
+              label(for='password')
+                | Password
+              input#password(name='password', placeholder='', value='', type='password')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
-              label(for='server_port')
-                | Port
-              input#server_port(name='port', placeholder='6379', value='6379', type='number')
+              label(for='password_2')
+                | Password confirm
+              input#password_2(name='password_2', placeholder='', value='', type='password')
           input(type='submit', data-theme='e', value='Add')

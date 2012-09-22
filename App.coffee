@@ -1,6 +1,8 @@
 express = require 'express'
 pipeline = require 'connect-assets'
 
+account_routes = require './routes/Account'
+
 app = express(express.logger())
 app.use express.bodyParser()
 app.use pipeline()
@@ -19,8 +21,9 @@ app.post '/login', (req, res) ->
 app.get '/login', (req, res) ->
 	res.render 'login'
 
-app.get '/account/create', (req, res) ->
-	res.render 'account/index'
+app.get '/account/create', account_routes.get
+app.post '/account/create', account_routes.post
+
 
 port = process.env.PORT or 3000
 
