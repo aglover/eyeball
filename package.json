@@ -9,7 +9,8 @@
 		"redis": "latest",
 		"hiredis": "latest",
 		"coffee-script" : "latest",
-		"connect-assets" : "2.2.1"
+		"connect-assets" : "2.2.1",
+		"mongoose":"latest"
 	},
 	"engines" : {
 		"node" : "0.6.x"

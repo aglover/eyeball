@@ -11,10 +11,16 @@ app.use '/js', express.static(__dirname + '/public/js')
 app.use '/style', express.static(__dirname + '/public/style')
 
 app.get '/', (req, res) ->
-	res.render 'login'
+	res.redirect '/login'
 
 app.post '/login', (req, res) ->
+	# res.render 'login'
+
+app.get '/login', (req, res) ->
 	res.render 'login'
+
+app.get '/account/create', (req, res) ->
+	res.render 'account/index'
 
 port = process.env.PORT or 3000
 
