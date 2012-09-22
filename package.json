@@ -9,7 +9,7 @@
 		"redis": "latest",
 		"hiredis": "latest",
 		"coffee-script" : "latest",
-		"connect-assets" : "latest"
+		"connect-assets" : "2.3.3"
 	},
 	"engines" : {
 		"node" : "0.6.x"
