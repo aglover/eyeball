@@ -10,7 +10,9 @@
 		"hiredis": "latest",
 		"coffee-script" : "latest",
 		"connect-assets" : "2.2.1",
-		"mongoose":"latest"
+		"mongoose":"latest",
+		"passport":"latest",
+		"passport-local":"latest"
 	},
 	"engines" : {
 		"node" : "0.6.x"

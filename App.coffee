@@ -1,26 +1,26 @@
 express = require 'express'
 pipeline = require 'connect-assets'
+mongoose = require 'mongoose'
 
-account_routes = require './routes/Account'
-
-app = express(express.logger())
+app = express express.logger() 
 app.use express.bodyParser()
 app.use pipeline()
+
+models = require './models/Models'
+index_routes = require './routes/Index'
+account_routes = require './routes/Account'
+login_routes = require './routes/Login'
+
 
 app.set 'view engine', 'jade'
 app.use '/images', express.static(__dirname + '/public/images')
 app.use '/js', express.static(__dirname + '/public/js')
 app.use '/style', express.static(__dirname + '/public/style')
 
-app.get '/', (req, res) ->
-	res.redirect '/login'
-
-app.post '/login', (req, res) ->
-	# res.render 'login'
-
-app.get '/login', (req, res) ->
-	res.render 'login'
-
+app.get '/', index_routes.get
+app.get '/index', index_routes.get_success
+app.post '/login/login', login_routes.post
+app.get '/login/index', login_routes.get
 app.get '/account/create', account_routes.get
 app.post '/account/create', account_routes.post
 
