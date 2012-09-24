@@ -12,7 +12,8 @@
 		"connect-assets" : "2.2.1",
 		"mongoose":"latest",
 		"passport":"latest",
-		"passport-local":"latest"
+		"passport-local":"latest",
+		"connect-flash":"latest"
 	},
 	"engines" : {
 		"node" : "0.6.x"
