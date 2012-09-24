@@ -35,6 +35,7 @@ html
         a.ui-btn-right(data-role='button', data-transition='fade', href='/account/create', data-icon='plus', data-iconpos='left')
           | Create Account
       div(data-role='content', style='padding: 15px;')
+        div#error_message #{message}
         form(action='/login/login', method='POST', data-ajax='false')
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')

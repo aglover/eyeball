@@ -10,7 +10,7 @@ models = require './models/Models'
 index_routes = require './routes/Index'
 account_routes = require './routes/Account'
 login_routes = require './routes/Login'
-
+server_routes = require './routes/Server'
 
 app.set 'view engine', 'jade'
 app.use '/images', express.static(__dirname + '/public/images')
@@ -23,7 +23,7 @@ app.post '/login/login', login_routes.post
 app.get '/login/index', login_routes.get
 app.get '/account/create', account_routes.get
 app.post '/account/create', account_routes.post
-
+app.post '/server/create', server_routes.post
 
 port = process.env.PORT or 3000
 

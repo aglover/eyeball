@@ -9,13 +9,14 @@ module.exports =
 			if err
 				res.send "eerr!!!"
 			if !document
-				res.send "user not found"
+				res.render 'login/index', {message: 'Unknown user'}
 			else
 				if document.password is req.body.password
-					res.render 'index'
+					console.log "document was found forwarding #{document._id}"
+					res.render 'index', {account_token: document._id}
 				else
-					res.send "nope!"
-		# res.send "test"
+					res.render 'login/index', {message: 'Invalid password'}
+
 
 	get: (req, res) ->
-		res.render 'login/index'
+		res.render 'login/index', {messasge:''}

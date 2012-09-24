@@ -27,7 +27,7 @@ html
       }
     script(src='js/add2home.js')
     script(src='js/app.js')
-    != js('eyeball')
+    // != js('eyeball')
   body
     //
        Home 
@@ -70,7 +70,8 @@ html
         a.ui-btn-right(data-role='button', data-transition='fade', href='#page1', data-icon='arrow-l', data-iconpos='left')
           | Back
       div(data-role='content', style='padding: 15px;')
-        form(data-ajax='false', id='add_server_form')
+        form(data-ajax='false', id='add_server_form', method='POST', action='/server/create')
+          input(type='hidden', name='account_token', value=account_token)
           div(data-role='fieldcontain')
             fieldset(data-role='controlgroup')
               label(for='server_name')
