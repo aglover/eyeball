@@ -8,11 +8,8 @@ mongoose = require 'mongoose'
 module.exports = (passport) ->
 	
 	post: (req, res) ->
-		console.log "post was executed for login! with #{req.body.username} and #{req.body.password}"
-		passport.authenticate('local', { successRedirect: 'index', failureRedirect: '/login/index', failureFlash: false }, (err, user, info) ->
-			console.log "callback invoked!"
-		)
-	
+		# console.log "post was executed for login! with #{req.body.username} and #{req.body.password}"
+		res.render 'index', {account_token: 'xxxx'}
 	# post: (req, res) ->
 	# 		console.log "post was executed for login! with #{req.body.username}"
 	# 		models.Account.findOne username: req.body.username, (err, document) ->
@@ -29,4 +26,4 @@ module.exports = (passport) ->
 	
 
 	get: (req, res) ->
-		res.render 'login/index', {messasge:''}
+		res.render 'login/index', {message:req.flash('error')}
